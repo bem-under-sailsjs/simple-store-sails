@@ -31,6 +31,8 @@ module.exports.routes = {
 
     '/': 'IndexPageController.index',
 
+    '/admin': 'AdminController.index',
+
     /***************************************************************************
      *                                                                          *
      * Custom routes here...                                                    *
