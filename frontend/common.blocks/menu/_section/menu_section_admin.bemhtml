@@ -1,0 +1,25 @@
+block('menu')
+    .mod('section', 'admin')(
+    content()(function() {
+            return {
+                elem: 'items',
+                content: [
+                    {
+                        elem: 'item',
+                        content: 'Настройки',
+                        url: '/admin/settings/'
+                    },
+                    {
+                        elem: 'item',
+                        content: 'Пользователи',
+                        url: '/admin/users/'
+                    },
+                    {
+                        elem: 'item',
+                        content: 'Заказы',
+                        url: '/admin/order/'
+                    }
+                ]
+            };
+        }
+    ));

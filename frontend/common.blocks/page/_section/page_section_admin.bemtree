@@ -3,6 +3,17 @@ block('page')
     .content()(function() {
     var data = this.ctx.data;
 
-    return ['admin', applyNext()];
+    return [
+        {
+            block: 'menu',
+            mods: {theme: 'islands', size: 'm', section: 'admin'}
+        },
+        {
+            block: 'controller',
+            elem: data.req.options.controller,
+            mods: {action: data.req.options.action},
+            data: data
+        },
+        applyNext()];
 
 });

@@ -33,6 +33,9 @@ module.exports.routes = {
 
     '/admin': 'AdminController.index',
 
+    'get /admin/settings': 'AdminController.showSettings',
+    'post /admin/settings': 'AdminController.updateSettings',
+
     /***************************************************************************
      *                                                                          *
      * Custom routes here...                                                    *
