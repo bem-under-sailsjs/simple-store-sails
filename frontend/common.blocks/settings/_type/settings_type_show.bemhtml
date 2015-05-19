@@ -1,0 +1,14 @@
+block('settings').mod('type', 'show')(
+    tag()('ul'),
+
+    elem('item')(
+        tag()('li'),
+        content()(function() {
+            return this.ctx.name ? {
+                block: 'input',
+                val: this.ctx.content,
+                name: this.ctx.name
+            } : this.ctx.content;
+        })
+    )
+);

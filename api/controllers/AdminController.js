@@ -62,7 +62,12 @@ module.exports = {
         });
     },
 
-    updateSettings: function() {
-        // TODO
+    updateSettings: function(req, res, next) {
+
+        Settings.update(req.param('id'), req.params.all(), function(err, settings) {
+            if (err) next(err);
+
+            res.redirect('/admin/settings/');
+        });
     }
 };

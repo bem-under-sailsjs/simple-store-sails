@@ -1,0 +1,36 @@
+block('settings')
+    .def()(function() {
+    var data = this.ctx.data,
+        settings = data.settings;
+
+    return applyCtx({
+        block: 'settings',
+        mods: this.ctx.mods,
+        data: data,
+        content: [
+            {
+                elem: 'item',
+                content: settings.siteTitle,
+                name: 'siteTitle'
+            },
+            {
+                elem: 'item',
+                content: settings.managerEmail,
+                name: 'managerEmail'
+            },
+            {
+                elem: 'item',
+                content: settings.managerName,
+                name: 'managerName'
+            },
+            {
+                elem: 'item',
+                content: {
+                    block: 'link',
+                    url: './edit',
+                    content: 'Редактировать'
+                }
+            }
+        ]
+    });
+});
