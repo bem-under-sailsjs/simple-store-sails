@@ -2,12 +2,17 @@
     "restartable": "rs",
     "ignore": [
         ".git",
-        "node_modules/**/node_modules"
+        "node_modules/**/node_modules",
+        "frontend",
+        "spec"
+    ],
+    "watch": [
+        "api",
+        "config",
+        "frontend/static/css",
+        "frontend/static/js"
     ],
     "verbose": true,
-    "events": {
-        "restart": ""
-    },
     "env": {
         "NODE_ENV": "development"
     }
