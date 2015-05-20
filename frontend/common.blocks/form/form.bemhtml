@@ -12,9 +12,24 @@ block('form')(
     content()(function() {
         // TODO: rewrite
         var req = this.ctx.data.req,
-            res = req.res;
+            res = req.res,
+            flash = req.flash(this.ctx.data.flashID),
+            messages;
+
+        if (flash && flash.length > 0) {
+            messages = flash.map(function(message) {
+                return {
+                    elem: 'message',
+                    content: message
+                };
+            });
+        }
 
         return [
+            {
+                elem: 'messages',
+                content: messages
+            },
             {
                 tag: 'input',
                 attrs: {
