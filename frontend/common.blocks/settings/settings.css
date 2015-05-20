@@ -1,0 +1,40 @@
+.settings
+{
+    margin: 30px 0 0 80px;
+    padding: 0;
+}
+
+.settings__item
+{
+    margin: 0 0 10px 0;
+}
+
+.settings__item:last-child
+{
+    margin: 15px 0 0 0;
+
+    list-style: none;
+}
+
+.settings__item .input
+{
+    display: inline-block;
+
+    width: 300px;
+
+    vertical-align: top;
+}
+
+
+.settings__item .label
+{
+    font-size: 0.9em;
+
+    display: inline-block;
+
+    width: 150px;
+    padding: 0 15px 0 0;
+
+    cursor: pointer;
+    vertical-align: top;
+}

@@ -11,24 +11,27 @@ block('settings')
             {
                 elem: 'item',
                 content: settings.siteTitle,
-                name: 'siteTitle'
+                name: 'siteTitle',
+                placeholder: 'Название сайта'
             },
             {
                 elem: 'item',
                 content: settings.managerEmail,
-                name: 'managerEmail'
+                name: 'managerEmail',
+                placeholder: 'Электропочта Менеджера'
             },
             {
                 elem: 'item',
                 content: settings.managerName,
-                name: 'managerName'
+                name: 'managerName',
+                placeholder: 'Имя Менеджера'
             },
             {
                 elem: 'item',
                 content: {
-                    block: 'link',
-                    url: './edit',
-                    content: 'Редактировать'
+                    block: 'button',
+                    mods: {type: 'submit', theme: 'islands', size: 'm'},
+                    text: 'Сохранить'
                 }
             }
         ]

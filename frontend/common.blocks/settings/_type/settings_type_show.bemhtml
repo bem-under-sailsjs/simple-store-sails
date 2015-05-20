@@ -1,14 +1,45 @@
 block('settings').mod('type', 'show')(
+    def()(function() {
+
+        applyCtx({
+            block: 'form',
+            data: this.ctx.data,
+            method: 'post',
+            content: {
+                block: 'settings',
+                data: this.ctx.data,
+                mods: {'type': 'show'},
+                content: this.ctx.content
+            }
+        });
+    }),
+
     tag()('ul'),
 
     elem('item')(
         tag()('li'),
         content()(function() {
-            return this.ctx.name ? {
-                block: 'input',
-                val: this.ctx.content,
-                name: this.ctx.name
-            } : this.ctx.content;
+
+            if (this.ctx.name) {
+                return [
+                    {
+                        block: 'label',
+                        id: this.generateId(),
+                        content: this.ctx.placeholder
+                    },
+                    {
+                        block: 'input',
+                        mods: {theme: 'islands', size: 'm'},
+                        id: this.generateId(),
+                        val: this.ctx.content,
+                        name: this.ctx.name,
+                        placeholder: this.ctx.placeholder
+                    }
+                ];
+
+            } else {
+                return this.ctx.content;
+            }
         })
     )
 );

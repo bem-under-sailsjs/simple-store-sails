@@ -34,7 +34,8 @@ module.exports = {
 
                     res.render({
                         data: {
-                            settings: currentSettings
+                            settings: currentSettings,
+                            flashID: 'updateSettings'
                         }
                     });
 
@@ -44,7 +45,8 @@ module.exports = {
 
                 res.render({
                     data: {
-                        settings: settings[0]
+                        settings: settings[0],
+                        flashID: 'updateSettings'
                     }
                 });
             }
@@ -67,6 +69,7 @@ module.exports = {
         Settings.update(req.param('id'), req.params.all(), function(err, settings) {
             if (err) next(err);
 
+            req.flash('updateSettings', 'Настройки сохранены успешно');
             res.redirect('/admin/settings/');
         });
     }
