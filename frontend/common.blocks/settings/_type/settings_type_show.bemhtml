@@ -1,12 +1,18 @@
 block('settings').mod('type', 'show')(
     def()(function() {
+        this.ctx.blockID = this.generateId();
 
         applyCtx({
             block: 'form',
             data: this.ctx.data,
             method: 'post',
+            flashMix: {
+                block: 'settings',
+                js: {id: this.ctx.blockID}
+            },
             content: {
                 block: 'settings',
+                js: {id: this.ctx.blockID},
                 data: this.ctx.data,
                 mods: {'type': 'show'},
                 content: this.ctx.content

@@ -1,6 +1,9 @@
 ({
     shouldDeps: [
         {
+            elems: ['messages']
+        },
+        {
             mods: {type: 'show'}
         },
         {

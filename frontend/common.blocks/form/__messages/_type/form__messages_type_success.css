@@ -1,0 +1,9 @@
+.form__messages_type_success
+{
+    display: inline-block;
+
+    padding: 10px 15px;
+
+    color: white;
+    background-color: #57a957;
+}

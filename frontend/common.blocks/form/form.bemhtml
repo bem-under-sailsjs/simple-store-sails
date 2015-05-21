@@ -11,9 +11,11 @@ block('form')(
     ),
     content()(function() {
         // TODO: rewrite
-        var req = this.ctx.data.req,
+        var data = this.ctx.data,
+            req = data.req,
             res = req.res,
-            flash = req.flash(this.ctx.data.flashID),
+            flash = req.flash(data.flashID),
+            flashMix = this.ctx.flashMix,
             messages;
 
         if (flash && flash.length > 0) {
@@ -23,13 +25,24 @@ block('form')(
                     content: message
                 };
             });
+
+            if (flashMix) {
+                messages = {
+                    elem: 'messages',
+                    mods: {type: data.flashID.split(':')[1]},
+                    mix: [
+                        {
+                            block: flashMix.block,
+                            elem: flashMix.elem || 'messages'
+                        }
+                    ],
+                    content: messages
+                };
+            }
         }
 
         return [
-            {
-                elem: 'messages',
-                content: messages
-            },
+            messages,
             {
                 tag: 'input',
                 attrs: {
