@@ -1,0 +1,13 @@
+block('controller')
+    .elem('admin')
+    .mod('action', 'showusers')
+    .def()(function() {
+        var data = this.ctx.data;
+
+        return applyCtx({
+            block: 'users',
+            mods: {type: 'show'},
+            data: data
+        });
+    }
+);

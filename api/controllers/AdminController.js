@@ -22,6 +22,18 @@ module.exports = {
 
     },
 
+    showUsers: function(req, res, next) {
+        User.find(function(err, users) {
+            if (err) next(err);
+
+            res.render({
+                data: {
+                    users: users
+                }
+            });
+        });
+    },
+
     showSettings: function(req, res, next) {
         var _this = this;
 

@@ -31,10 +31,12 @@ module.exports.routes = {
 
     '/': 'IndexPageController.index',
 
+    // Admin
     '/admin': 'AdminController.index',
 
     'get /admin/settings': 'AdminController.showSettings',
     'post /admin/settings': 'AdminController.updateSettings',
+    'get /admin/users': 'AdminController.showUsers',
 
     /***************************************************************************
      *                                                                          *

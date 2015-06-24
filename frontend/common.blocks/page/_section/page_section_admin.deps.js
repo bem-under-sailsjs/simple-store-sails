@@ -1,8 +1,11 @@
 ({
     shouldDeps: [
         {
-            block: 'menu',
-            mods: {section: 'admin'}
+            block: 'radio-group'
+        },
+        {
+            block: 'radio-group',
+            mods: {theme: 'islands', size: 'm', type: 'button'}
         }
     ]
 });

@@ -1,7 +1,7 @@
 ({
     shouldDeps: [
         {
-            mods: {action: ['showsettings']}
+            mods: {action: ['showsettings', 'showusers']}
         }
     ]
 });
