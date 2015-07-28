@@ -1,12 +1,13 @@
 block('user')(
     def()(function() {
         var user = this.ctx.data.req.session.User || {},
+            userName = user.username || user.email,
             content = [];
 
-        if (user.email) {
+        if (userName) {
             content.push({
-                    elem: 'email',
-                    content: user.email
+                    elem: 'name',
+                    content: userName
                 },
                 {
                     elem: 'logout',
