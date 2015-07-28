@@ -11,6 +11,7 @@ module.exports = {
         gender: {type: 'string'},
         isOnline: {type: 'boolean'},
         isAdmin: {type: 'boolean', defaultsTo: false},
+        role: {type: 'integer', defaultsTo: 100},
         emails: {type: 'array'},
         email: {type: 'email', unique: true},
         passports: {collection: 'Passport', via: 'user'}

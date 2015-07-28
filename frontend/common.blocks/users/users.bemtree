@@ -3,9 +3,9 @@ block('users')(
             return this.ctx.data.users.map(function(item) {
                 return {
                     elem: 'item',
-                    tag: 'li',
-                    item: item
+                    item: item,
+                    data: this.ctx.data
                 };
-            });
+            }.bind(this));
         }
 ));

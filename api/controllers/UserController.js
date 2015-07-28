@@ -30,15 +30,19 @@ module.exports = {
 
     update: function(req, res, next) {
 
+        console.log("update");
+
         var data = req.params.all();
 
+        console.log("data: ", data);
+
         // TODO: refactor
-        data.isAdmin = (req.session.User.isAdmin) && (data.isAdmin === 'yes');
+        //data.isAdmin = (req.session.User.isAdmin) && (data.isAdmin === 'yes');
 
         User.update(req.param('id'), data, function(err, user) {
             if (err) next(err);
 
-            res.redirect('/user/' + data.id);
+            res.redirect('/admin/users/');
         });
     }
 };

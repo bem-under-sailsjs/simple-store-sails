@@ -1,0 +1,108 @@
+block('users')
+    .elem('item')(
+    tag()('li'),
+
+    content()(function() {
+        var item = this.ctx.item,
+            blockID = this.generateId(),
+            action = '/user/' + item.id + '/update';
+
+        return {
+            block: 'form',
+            data: this.ctx.data,
+            method: 'post',
+            action: action,
+            content: {
+                // restore context
+                block: this.block,
+                mods: this.mods,
+                tag: '',
+                content: [
+                    {
+                        elem: 'info',
+                        content: [
+                            {
+                                block: 'label',
+                                id: blockID + 'email',
+                                content: 'email'
+                            },
+                            {
+                                block: 'input',
+                                mods: {theme: 'islands', size: 'm'},
+                                id: blockID + 'email',
+                                val: item.email,
+                                name: 'email',
+                                placeholder: 'email'
+                            }
+                        ]
+                    },
+                    {
+                        elem: 'info',
+                        content: [
+                            {
+                                block: 'label',
+                                id: blockID + 'username',
+                                content: 'username'
+                            },
+                            {
+                                block: 'input',
+                                mods: {theme: 'islands', size: 'm'},
+                                id: blockID + 'username',
+                                val: item.username,
+                                name: 'username',
+                                placeholder: 'username'
+                            }
+                        ]
+                    },
+                    {
+                        elem: 'info',
+                        content: [
+                            {
+                                block: 'label',
+                                id: blockID + 'displayName',
+                                content: 'displayName'
+                            },
+                            {
+                                block: 'input',
+                                mods: {theme: 'islands', size: 'm'},
+                                id: blockID + 'displayName',
+                                val: item.displayName,
+                                name: 'displayName',
+                                placeholder: 'displayName'
+                            }
+                        ]
+                    },
+                    {
+                        elem: 'info',
+                        content: {
+                            block: 'radio-group',
+                            mods: {theme: 'islands', size: 'm', type: 'button'},
+                            name: 'role',
+                            val: item.role || (item.isAdmin ? 1 : 100),
+                            options: [
+                                {val: 1, text: 'Администратор'},
+                                {val: 10, text: 'Менеджер'},
+                                {val: 100, text: 'Покупатель'}
+                            ]
+                        }
+                    },
+                    {
+                        elem: 'info',
+                        mods: {type: 'time'},
+                        content: item.createdAt.toDateString()
+                    },
+                    {
+                        elem: 'info',
+                        mods: {type: 'time'},
+                        content: item.updatedAt.toDateString()
+                    },
+                    {
+                        block: 'button',
+                        mods: {type: 'submit', theme: 'islands'},
+                        text: 'Сохранить'
+                    }
+                ]
+            }
+        };
+    })
+);
